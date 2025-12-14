@@ -1,0 +1,13 @@
+{
+  "name": "pawmate-au-agent",
+  "version": "1.0.0",
+  "scripts": {
+    "start-agent": "node backend/src/agent/ai-media-agent.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.10.0",
+    "pg": "^8.11.3"
+  }
+}
