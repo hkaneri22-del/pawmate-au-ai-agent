@@ -2,7 +2,7 @@
   "name": "pawmate-au-agent",
   "version": "1.0.0",
   "scripts": {
-    "start-agent": "node backend/src/agent/ai-media-agent.js"
+    "start": "node backend/src/agent/ai-media-agent.js"
   },
   "dependencies": {
     "axios": "^1.6.0",
