@@ -1,16 +1,10 @@
-console.log("🐶 ProductScanner loaded");
+console.log("🧾 OrderManager module loaded");
 
-async function scan() {
-  console.log("🔍 Product scan running...");
-
-  // TEMP — your product search logic will go here
-  // Example actions in future:
-  // - fetch trending products
-  // - validate supplier stock
-  // - check reviews + competition
-  // - sync to Shopify
-
-  return true;
+async function process() {
+    console.log("🧾 OrderManager.process() called — running in safe mode");
+    // No real order actions here yet
 }
 
-module.exports = { scan };
+module.exports = {
+    process
+};
