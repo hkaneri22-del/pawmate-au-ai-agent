@@ -13,6 +13,7 @@ require("dotenv").config();
     const adsManager = require("./adsManager");
     const orderManager = require("./orderManager");
     const reports = require("./reports");
+    const productResearch = require("./productResearch");
 
     console.log("📦 All modules loaded successfully");
 
@@ -27,6 +28,7 @@ require("dotenv").config();
         await adsManager.optimize();
         await orderManager.process();
         await reports.weekly();
+        await productResearch.scanTrends();
 
       } catch (loopErr) {
         console.error("❌ ERROR inside main loop:", loopErr);
