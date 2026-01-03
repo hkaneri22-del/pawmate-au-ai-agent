@@ -14,6 +14,7 @@ require("dotenv").config();
     const orderManager = require("./orderManager");
     const reports = require("./reports");
     const productResearch = require("./productResearch");
+    const { scoreProduct } = require("./productScoring");
 
     console.log("📦 All modules loaded successfully");
 
@@ -22,7 +23,19 @@ require("dotenv").config();
       try {
         console.log("❤️ Heartbeat — running AI tasks...");
 
-        await productScanner.scan();
+        const researched = await productScanner.scan();
+
+if (researched && researched.length) {
+    console.log("📊 Scoring pet products...");
+
+    const ranked = researched.map(p => {
+        p.score = scoreProduct(p);
+        return p;
+    }).sort((a,b) => b.score - a.score);
+
+    console.log("🏆 Top Pet Products (Learning Mode):");
+    console.log(ranked.slice(0,3));
+}
         await shopifySync.sync();
         await cjIntegration.syncOrders();
         await adsManager.optimize();
