@@ -9,7 +9,7 @@ require("dotenv").config();
     // Load modules
     const productScanner = require("./productScanner");
     const shopifySync = require("./shopifySync");
-    const cjIntegration = require("./cjintegration");
+    const cjIntegration = require("./cjIntegration");
     const adsManager = require("./adsManager");
     const orderManager = require("./orderManager");
     const reports = require("./reports");
