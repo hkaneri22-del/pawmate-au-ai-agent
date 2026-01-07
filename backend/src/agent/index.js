@@ -14,6 +14,7 @@ require("dotenv").config();
     const orderManager = require("./orderManager");
     const reports = require("./reports");
     const productResearch = require("./productResearch");
+    const { createShopifyProduct } = require("../services/shopifyProductService");
     const { scoreProduct } = require("./productScoring");
 
     console.log("📦 All modules loaded successfully");
@@ -35,6 +36,9 @@ if (researched && researched.length) {
 
     console.log("🏆 Top Pet Products (Learning Mode):");
     console.log(ranked.slice(0,3));
+  // ⬇️ NEW: Create Top 3 Products in Shopify
+for (let product of ranked.slice(0, 3)) {
+  await createShopifyProduct(product);
 }
         await shopifySync.sync();
         await cjIntegration.syncOrders();
